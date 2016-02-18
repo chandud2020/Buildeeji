@@ -1,0 +1,787 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BuildeejiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Amenities">
+          <Key>
+            <PropertyRef Name="AmenityId" />
+          </Key>
+          <Property Name="AmenityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AmenityDescription" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Availability">
+          <Key>
+            <PropertyRef Name="AvailabilityID" />
+          </Key>
+          <Property Name="AvailabilityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AvailabilityDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ListingTypes">
+          <Key>
+            <PropertyRef Name="ListingTypeID" />
+          </Key>
+          <Property Name="ListingTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ListingTypeDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Possession">
+          <Key>
+            <PropertyRef Name="PossessionID" />
+          </Key>
+          <Property Name="PossessionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PossessionDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Properties">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ListingTypeDescription" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryDescription" Type="varchar" MaxLength="500" />
+          <Property Name="IsResale" Type="varchar" MaxLength="10" />
+          <Property Name="PropertyAge" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="PropertyPrice" Type="decimal" Precision="20" Scale="3" />
+          <Property Name="PropertyProjectName" Type="varchar" MaxLength="500" />
+          <Property Name="PropertyProjectLocality" Type="varchar" MaxLength="500" />
+          <Property Name="PropertyAddress" Type="varchar" MaxLength="1000" />
+          <Property Name="PropertyCity" Type="varchar" MaxLength="500" />
+          <Property Name="PropertyAddressPin" Type="int" />
+          <Property Name="PropertyMapLongitude" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyMapLatitude" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyComments" Type="varchar" MaxLength="1000" />
+          <Property Name="PropertyBuiltUpArea" Type="decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyBuiltUpAreaUnitType" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyCarpetArea" Type="decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyCarpetAreaUnitType" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyPlotArea" Type="decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyPlotAreaUnitType" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyListedBy" Type="int" />
+          <Property Name="PropertyListedOn" Type="datetime" />
+          <Property Name="PropertyPriyority" Type="int" />
+          <Property Name="LastUpdatedBy" Type="int" />
+          <Property Name="LastUpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PropertiesHistory">
+          <Key>
+            <PropertyRef Name="PropertyHistoryId" />
+          </Key>
+          <Property Name="PropertyHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="ListingTypeDescription" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryDescription" Type="varchar" MaxLength="500" />
+          <Property Name="IsResale" Type="varchar" MaxLength="10" />
+          <Property Name="PropertyAge" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="PropertyPrice" Type="decimal" Precision="20" Scale="3" />
+          <Property Name="PropertyProjectName" Type="varchar" MaxLength="500" />
+          <Property Name="PropertyProjectLocality" Type="varchar" MaxLength="500" />
+          <Property Name="PropertyAddress" Type="varchar" MaxLength="1000" />
+          <Property Name="PropertyCity" Type="varchar" MaxLength="500" />
+          <Property Name="PropertyAddressPin" Type="int" />
+          <Property Name="PropertyMapLongitude" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyMapLatitude" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyComments" Type="varchar" MaxLength="1000" />
+          <Property Name="PropertyBuiltUpArea" Type="decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyBuiltUpAreaUnitType" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyCarpetArea" Type="decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyCarpetAreaUnitType" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyPlotArea" Type="decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyPlotAreaUnitType" Type="varchar" MaxLength="50" />
+          <Property Name="PropertyListedBy" Type="int" />
+          <Property Name="PropertyListedOn" Type="datetime" />
+          <Property Name="PropertyPriyority" Type="int" />
+          <Property Name="LastUpdatedBy" Type="int" />
+          <Property Name="LastUpdatedOn" Type="datetime" />
+          <Property Name="SubCategoryDescription" Type="varchar" MaxLength="100" />
+          <Property Name="PropertyAmenityID" Type="varchar" MaxLength="100" />
+          <Property Name="Bedrroms" Type="int" />
+          <Property Name="Washrooms" Type="int" />
+          <Property Name="Balcony" Type="int" />
+          <Property Name="FloorNUmber" Type="int" />
+          <Property Name="TotalFloors" Type="int" />
+        </EntityType>
+        <EntityType Name="PropertyDetails">
+          <Key>
+            <PropertyRef Name="PropertyDetailsId" />
+          </Key>
+          <Property Name="PropertyDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyId" Type="int" />
+          <Property Name="SubCategoryDescription" Type="varchar" MaxLength="100" />
+          <Property Name="PropertyAmenityID" Type="varchar" MaxLength="100" />
+          <Property Name="Bedrroms" Type="int" />
+          <Property Name="Washrooms" Type="int" />
+          <Property Name="Balcony" Type="int" />
+          <Property Name="FloorNUmber" Type="int" />
+          <Property Name="TotalFloors" Type="int" />
+        </EntityType>
+        <EntityType Name="PropertyIMageCategory">
+          <Key>
+            <PropertyRef Name="PropertyImageCategoryDescription" />
+          </Key>
+          <Property Name="PropertyImageCategoryDescription" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyIMages">
+          <Key>
+            <PropertyRef Name="PropertyImageName" />
+          </Key>
+          <Property Name="PropertyImageName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PropertID" Type="int" Nullable="false" />
+          <Property Name="PropertyImageCategory" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PropertyImagePath" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PropertyOwnershipType">
+          <Key>
+            <PropertyRef Name="PropertyOwnershipID" />
+          </Key>
+          <Property Name="PropertyOwnershipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PropertyOwnershipDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="100" />
+          <Property Name="RoleDescription" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedBY" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="SubCategoryDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="UnitMeasure">
+          <Key>
+            <PropertyRef Name="UnitMeasureId" />
+          </Key>
+          <Property Name="UnitMeasureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitMeasureDescription" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Name="UserProfileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CreatedBY" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBY" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PasswordEncryptedText" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreatedBY" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="WebsiteAd">
+          <Key>
+            <PropertyRef Name="WebsiteAdId" />
+          </Key>
+          <Property Name="WebsiteAdId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Details" Type="varchar" MaxLength="50" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="500" />
+          <Property Name="TagLine" Type="varchar" MaxLength="100" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+          <Property Name="Start" Type="datetime" />
+          <Property Name="Expire" Type="datetime" />
+          <Property Name="CreatedBY" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="BuildeejiModelStoreContainer">
+          <EntitySet Name="Amenities" EntityType="Self.Amenities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Availability" EntityType="Self.Availability" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListingTypes" EntityType="Self.ListingTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Possession" EntityType="Self.Possession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Properties" EntityType="Self.Properties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertiesHistory" EntityType="Self.PropertiesHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyDetails" EntityType="Self.PropertyDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyIMageCategory" EntityType="Self.PropertyIMageCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyIMages" EntityType="Self.PropertyIMages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyOwnershipType" EntityType="Self.PropertyOwnershipType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitMeasure" EntityType="Self.UnitMeasure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WebsiteAd" EntityType="Self.WebsiteAd" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BuildeejiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Amenity">
+          <Key>
+            <PropertyRef Name="AmenityId" />
+          </Key>
+          <Property Name="AmenityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AmenityDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Availability">
+          <Key>
+            <PropertyRef Name="AvailabilityID" />
+          </Key>
+          <Property Name="AvailabilityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AvailabilityDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ListingType">
+          <Key>
+            <PropertyRef Name="ListingTypeID" />
+          </Key>
+          <Property Name="ListingTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ListingTypeDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Possession">
+          <Key>
+            <PropertyRef Name="PossessionID" />
+          </Key>
+          <Property Name="PossessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PossessionDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="PropertyId" />
+          </Key>
+          <Property Name="PropertyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ListingTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsResale" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAge" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="PropertyPrice" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="PropertyProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyProjectLocality" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyCity" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAddressPin" Type="Int32" />
+          <Property Name="PropertyMapLongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyMapLatitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyComments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyBuiltUpArea" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyBuiltUpAreaUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyCarpetArea" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyCarpetAreaUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyPlotArea" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyPlotAreaUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyListedBy" Type="Int32" />
+          <Property Name="PropertyListedOn" Type="DateTime" Precision="3" />
+          <Property Name="PropertyPriyority" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="Int32" />
+          <Property Name="LastUpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PropertiesHistory">
+          <Key>
+            <PropertyRef Name="PropertyHistoryId" />
+          </Key>
+          <Property Name="PropertyHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="ListingTypeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsResale" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAge" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="PropertyPrice" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="PropertyProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyProjectLocality" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyCity" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAddressPin" Type="Int32" />
+          <Property Name="PropertyMapLongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyMapLatitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyComments" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyBuiltUpArea" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyBuiltUpAreaUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyCarpetArea" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyCarpetAreaUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyPlotArea" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="PropertyPlotAreaUnitType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyListedBy" Type="Int32" />
+          <Property Name="PropertyListedOn" Type="DateTime" Precision="3" />
+          <Property Name="PropertyPriyority" Type="Int32" />
+          <Property Name="LastUpdatedBy" Type="Int32" />
+          <Property Name="LastUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="SubCategoryDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAmenityID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bedrroms" Type="Int32" />
+          <Property Name="Washrooms" Type="Int32" />
+          <Property Name="Balcony" Type="Int32" />
+          <Property Name="FloorNUmber" Type="Int32" />
+          <Property Name="TotalFloors" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PropertyDetail">
+          <Key>
+            <PropertyRef Name="PropertyDetailsId" />
+          </Key>
+          <Property Name="PropertyDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyId" Type="Int32" />
+          <Property Name="SubCategoryDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PropertyAmenityID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bedrroms" Type="Int32" />
+          <Property Name="Washrooms" Type="Int32" />
+          <Property Name="Balcony" Type="Int32" />
+          <Property Name="FloorNUmber" Type="Int32" />
+          <Property Name="TotalFloors" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PropertyIMageCategory">
+          <Key>
+            <PropertyRef Name="PropertyImageCategoryDescription" />
+          </Key>
+          <Property Name="PropertyImageCategoryDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PropertyIMage">
+          <Key>
+            <PropertyRef Name="PropertyImageName" />
+          </Key>
+          <Property Name="PropertyImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertID" Type="Int32" Nullable="false" />
+          <Property Name="PropertyImageCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PropertyOwnershipType">
+          <Key>
+            <PropertyRef Name="PropertyOwnershipID" />
+          </Key>
+          <Property Name="PropertyOwnershipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PropertyOwnershipDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBY" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="SubCategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UnitMeasure">
+          <Key>
+            <PropertyRef Name="UnitMeasureId" />
+          </Key>
+          <Property Name="UnitMeasureId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitMeasureDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserProfileID" />
+          </Key>
+          <Property Name="UserProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CreatedBY" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleID" />
+          </Key>
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBY" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordEncryptedText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedBY" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="UserTypeID" />
+          </Key>
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WebsiteAd">
+          <Key>
+            <PropertyRef Name="WebsiteAdId" />
+          </Key>
+          <Property Name="WebsiteAdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TagLine" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Start" Type="DateTime" Precision="3" />
+          <Property Name="Expire" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBY" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="BuildeejiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Amenities" EntityType="Self.Amenity" />
+          <EntitySet Name="Availabilities" EntityType="Self.Availability" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="ListingTypes" EntityType="Self.ListingType" />
+          <EntitySet Name="Possessions" EntityType="Self.Possession" />
+          <EntitySet Name="Properties" EntityType="Self.Property" />
+          <EntitySet Name="PropertiesHistories" EntityType="Self.PropertiesHistory" />
+          <EntitySet Name="PropertyDetails" EntityType="Self.PropertyDetail" />
+          <EntitySet Name="PropertyIMageCategories" EntityType="Self.PropertyIMageCategory" />
+          <EntitySet Name="PropertyIMages" EntityType="Self.PropertyIMage" />
+          <EntitySet Name="PropertyOwnershipTypes" EntityType="Self.PropertyOwnershipType" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="UnitMeasures" EntityType="Self.UnitMeasure" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <EntitySet Name="WebsiteAds" EntityType="Self.WebsiteAd" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BuildeejiModelStoreContainer" CdmEntityContainer="BuildeejiEntities">
+          <EntitySetMapping Name="Amenities">
+            <EntityTypeMapping TypeName="BuildeejiModel.Amenity">
+              <MappingFragment StoreEntitySet="Amenities">
+                <ScalarProperty Name="AmenityId" ColumnName="AmenityId" />
+                <ScalarProperty Name="AmenityDescription" ColumnName="AmenityDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Availabilities">
+            <EntityTypeMapping TypeName="BuildeejiModel.Availability">
+              <MappingFragment StoreEntitySet="Availability">
+                <ScalarProperty Name="AvailabilityID" ColumnName="AvailabilityID" />
+                <ScalarProperty Name="AvailabilityDescription" ColumnName="AvailabilityDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="BuildeejiModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingTypes">
+            <EntityTypeMapping TypeName="BuildeejiModel.ListingType">
+              <MappingFragment StoreEntitySet="ListingTypes">
+                <ScalarProperty Name="ListingTypeID" ColumnName="ListingTypeID" />
+                <ScalarProperty Name="ListingTypeDescription" ColumnName="ListingTypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Possessions">
+            <EntityTypeMapping TypeName="BuildeejiModel.Possession">
+              <MappingFragment StoreEntitySet="Possession">
+                <ScalarProperty Name="PossessionID" ColumnName="PossessionID" />
+                <ScalarProperty Name="PossessionDescription" ColumnName="PossessionDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="BuildeejiModel.Property">
+              <MappingFragment StoreEntitySet="Properties">
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="ListingTypeDescription" ColumnName="ListingTypeDescription" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="IsResale" ColumnName="IsResale" />
+                <ScalarProperty Name="PropertyAge" ColumnName="PropertyAge" />
+                <ScalarProperty Name="PropertyPrice" ColumnName="PropertyPrice" />
+                <ScalarProperty Name="PropertyProjectName" ColumnName="PropertyProjectName" />
+                <ScalarProperty Name="PropertyProjectLocality" ColumnName="PropertyProjectLocality" />
+                <ScalarProperty Name="PropertyAddress" ColumnName="PropertyAddress" />
+                <ScalarProperty Name="PropertyCity" ColumnName="PropertyCity" />
+                <ScalarProperty Name="PropertyAddressPin" ColumnName="PropertyAddressPin" />
+                <ScalarProperty Name="PropertyMapLongitude" ColumnName="PropertyMapLongitude" />
+                <ScalarProperty Name="PropertyMapLatitude" ColumnName="PropertyMapLatitude" />
+                <ScalarProperty Name="PropertyComments" ColumnName="PropertyComments" />
+                <ScalarProperty Name="PropertyBuiltUpArea" ColumnName="PropertyBuiltUpArea" />
+                <ScalarProperty Name="PropertyBuiltUpAreaUnitType" ColumnName="PropertyBuiltUpAreaUnitType" />
+                <ScalarProperty Name="PropertyCarpetArea" ColumnName="PropertyCarpetArea" />
+                <ScalarProperty Name="PropertyCarpetAreaUnitType" ColumnName="PropertyCarpetAreaUnitType" />
+                <ScalarProperty Name="PropertyPlotArea" ColumnName="PropertyPlotArea" />
+                <ScalarProperty Name="PropertyPlotAreaUnitType" ColumnName="PropertyPlotAreaUnitType" />
+                <ScalarProperty Name="PropertyListedBy" ColumnName="PropertyListedBy" />
+                <ScalarProperty Name="PropertyListedOn" ColumnName="PropertyListedOn" />
+                <ScalarProperty Name="PropertyPriyority" ColumnName="PropertyPriyority" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertiesHistories">
+            <EntityTypeMapping TypeName="BuildeejiModel.PropertiesHistory">
+              <MappingFragment StoreEntitySet="PropertiesHistory">
+                <ScalarProperty Name="PropertyHistoryId" ColumnName="PropertyHistoryId" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="ListingTypeDescription" ColumnName="ListingTypeDescription" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="IsResale" ColumnName="IsResale" />
+                <ScalarProperty Name="PropertyAge" ColumnName="PropertyAge" />
+                <ScalarProperty Name="PropertyPrice" ColumnName="PropertyPrice" />
+                <ScalarProperty Name="PropertyProjectName" ColumnName="PropertyProjectName" />
+                <ScalarProperty Name="PropertyProjectLocality" ColumnName="PropertyProjectLocality" />
+                <ScalarProperty Name="PropertyAddress" ColumnName="PropertyAddress" />
+                <ScalarProperty Name="PropertyCity" ColumnName="PropertyCity" />
+                <ScalarProperty Name="PropertyAddressPin" ColumnName="PropertyAddressPin" />
+                <ScalarProperty Name="PropertyMapLongitude" ColumnName="PropertyMapLongitude" />
+                <ScalarProperty Name="PropertyMapLatitude" ColumnName="PropertyMapLatitude" />
+                <ScalarProperty Name="PropertyComments" ColumnName="PropertyComments" />
+                <ScalarProperty Name="PropertyBuiltUpArea" ColumnName="PropertyBuiltUpArea" />
+                <ScalarProperty Name="PropertyBuiltUpAreaUnitType" ColumnName="PropertyBuiltUpAreaUnitType" />
+                <ScalarProperty Name="PropertyCarpetArea" ColumnName="PropertyCarpetArea" />
+                <ScalarProperty Name="PropertyCarpetAreaUnitType" ColumnName="PropertyCarpetAreaUnitType" />
+                <ScalarProperty Name="PropertyPlotArea" ColumnName="PropertyPlotArea" />
+                <ScalarProperty Name="PropertyPlotAreaUnitType" ColumnName="PropertyPlotAreaUnitType" />
+                <ScalarProperty Name="PropertyListedBy" ColumnName="PropertyListedBy" />
+                <ScalarProperty Name="PropertyListedOn" ColumnName="PropertyListedOn" />
+                <ScalarProperty Name="PropertyPriyority" ColumnName="PropertyPriyority" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+                <ScalarProperty Name="SubCategoryDescription" ColumnName="SubCategoryDescription" />
+                <ScalarProperty Name="PropertyAmenityID" ColumnName="PropertyAmenityID" />
+                <ScalarProperty Name="Bedrroms" ColumnName="Bedrroms" />
+                <ScalarProperty Name="Washrooms" ColumnName="Washrooms" />
+                <ScalarProperty Name="Balcony" ColumnName="Balcony" />
+                <ScalarProperty Name="FloorNUmber" ColumnName="FloorNUmber" />
+                <ScalarProperty Name="TotalFloors" ColumnName="TotalFloors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyDetails">
+            <EntityTypeMapping TypeName="BuildeejiModel.PropertyDetail">
+              <MappingFragment StoreEntitySet="PropertyDetails">
+                <ScalarProperty Name="PropertyDetailsId" ColumnName="PropertyDetailsId" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="SubCategoryDescription" ColumnName="SubCategoryDescription" />
+                <ScalarProperty Name="PropertyAmenityID" ColumnName="PropertyAmenityID" />
+                <ScalarProperty Name="Bedrroms" ColumnName="Bedrroms" />
+                <ScalarProperty Name="Washrooms" ColumnName="Washrooms" />
+                <ScalarProperty Name="Balcony" ColumnName="Balcony" />
+                <ScalarProperty Name="FloorNUmber" ColumnName="FloorNUmber" />
+                <ScalarProperty Name="TotalFloors" ColumnName="TotalFloors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyIMageCategories">
+            <EntityTypeMapping TypeName="BuildeejiModel.PropertyIMageCategory">
+              <MappingFragment StoreEntitySet="PropertyIMageCategory">
+                <ScalarProperty Name="PropertyImageCategoryDescription" ColumnName="PropertyImageCategoryDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyIMages">
+            <EntityTypeMapping TypeName="BuildeejiModel.PropertyIMage">
+              <MappingFragment StoreEntitySet="PropertyIMages">
+                <ScalarProperty Name="PropertyImageName" ColumnName="PropertyImageName" />
+                <ScalarProperty Name="PropertID" ColumnName="PropertID" />
+                <ScalarProperty Name="PropertyImageCategory" ColumnName="PropertyImageCategory" />
+                <ScalarProperty Name="PropertyImagePath" ColumnName="PropertyImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyOwnershipTypes">
+            <EntityTypeMapping TypeName="BuildeejiModel.PropertyOwnershipType">
+              <MappingFragment StoreEntitySet="PropertyOwnershipType">
+                <ScalarProperty Name="PropertyOwnershipID" ColumnName="PropertyOwnershipID" />
+                <ScalarProperty Name="PropertyOwnershipDescription" ColumnName="PropertyOwnershipDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="BuildeejiModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="BuildeejiModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubCategoryDescription" ColumnName="SubCategoryDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitMeasures">
+            <EntityTypeMapping TypeName="BuildeejiModel.UnitMeasure">
+              <MappingFragment StoreEntitySet="UnitMeasure">
+                <ScalarProperty Name="UnitMeasureId" ColumnName="UnitMeasureId" />
+                <ScalarProperty Name="UnitMeasureDescription" ColumnName="UnitMeasureDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="BuildeejiModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserProfileID" ColumnName="UserProfileID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="BuildeejiModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BuildeejiModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="PasswordEncryptedText" ColumnName="PasswordEncryptedText" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="BuildeejiModel.UserType">
+              <MappingFragment StoreEntitySet="UserTypes">
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="UserTypeDescription" ColumnName="UserTypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebsiteAds">
+            <EntityTypeMapping TypeName="BuildeejiModel.WebsiteAd">
+              <MappingFragment StoreEntitySet="WebsiteAd">
+                <ScalarProperty Name="WebsiteAdId" ColumnName="WebsiteAdId" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="TagLine" ColumnName="TagLine" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Start" ColumnName="Start" />
+                <ScalarProperty Name="Expire" ColumnName="Expire" />
+                <ScalarProperty Name="CreatedBY" ColumnName="CreatedBY" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
